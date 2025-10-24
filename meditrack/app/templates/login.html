@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h4 mb-3">登入 MediTrack</h1>
+        <form method="post">
+          {{ form.csrf_token }}
+          <div class="mb-3">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", placeholder="帳號") }}
+          </div>
+          <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="密碼") }}
+          </div>
+          <div class="d-grid">
+            {{ form.submit(class="btn btn-primary") }}
+          </div>
+          <p class="text-muted mt-3 small">預設帳密：<code>admin / admin123</code></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

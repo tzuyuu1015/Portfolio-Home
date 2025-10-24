@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="d-flex align-items-center mb-3">
+  <h2 class="h4 mb-0 me-auto">高血壓名單</h2>
+  <a class="btn btn-outline-secondary"
+     href="{{ url_for('reports.report_hypertension_csv', q=q, start=start, end=end, min_sys=min_sys, min_dia=min_dia) }}">
+    下載 CSV
+  </a>
+</div>
+
+<form class="row g-2 align-items-end mb-3" method="get">
+  <div class="col-md-3">
+    <label class="form-label">關鍵字（姓名/病歷號/電話）</label>
+    <input class="form-control" name="q" value="{{ q }}">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">起始日</label>
+    <input type="date" class="form-control" name="start" value="{{ start }}">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">結束日</label>
+    <input type="date" class="form-control" name="end" value="{{ end }}">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">SBP 門檻</label>
+    <input class="form-control" type="number" name="min_sys" value="{{ min_sys }}">
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">DBP 門檻</label>
+    <input class="form-control" type="number" name="min_dia" value="{{ min_dia }}">
+  </div>
+  <div class="col-md-1 d-grid">
+    <button class="btn btn-primary" type="submit">查詢</button>
+  </div>
+</form>
+
+<div class="card shadow-sm">
+  <div class="table-responsive">
+    <table class="table table-hover mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>建立時間</th>
+          <th>病歷號</th>
+          <th>姓名</th>
+          <th>電話</th>
+          <th>SBP</th>
+          <th>DBP</th>
+          <th>HR</th>
+          <th>SpO₂</th>
+          <th>測量時間</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for p, sbp, dbp, hr, sp, t in rows %}
+        <tr>
+          <td>{{ p.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td>{{ p.mrn or '—' }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.phone or '—' }}</td>
+          <td class="{{ 'text-danger fw-bold' if sbp and sbp >= min_sys }}">{{ sbp or '—' }}</td>
+          <td class="{{ 'text-danger fw-bold' if dbp and dbp >= min_dia }}">{{ dbp or '—' }}</td>
+          <td>{{ hr or '—' }}</td>
+          <td>{{ sp or '—' }}</td>
+          <td>{{ t.strftime('%Y-%m-%d %H:%M') if t else '—' }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="9" class="text-center text-muted">沒有符合條件的資料</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

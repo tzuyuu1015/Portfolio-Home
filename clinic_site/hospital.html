@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晨光兒童醫院</title>
+    <link rel="icon" href="/clinic_site/images/hos-logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/hos.css">
+</head>
+<body>
+    <!-- Logo -->
+    <div>
+        <img class="logo-image" src="/clinic_site/images/hos.png" alt="晨光醫院logo">
+    </div>
+
+    <!-- 導覽列 -->
+    <nav>
+        <ul class="nav-list">
+            <li><a href="#home">關於晨光</a></li>
+            <li><a href="#about">科別介紹</a></li>
+            <li><a href="#services">醫療服務</a></li>
+            <li><a href="#contact">健康資訊</a></li>
+            <li><a href="#contact">掛號系統</a></li>
+            <li><a href="#contact">人才招募</a></li>
+        </ul>
+    </nav>
+
+    <!-- 首圖區 -->
+    <div class="hos-background">
+        <div class="hos-text-background">
+            <div>愛與關懷的起點，讓健康不再是距離</div>
+        </div>
+    </div>
+
+    <!-- 主內容 -->
+    <div class="container">
+        <!-- 便民專區 -->
+        <div>
+            <div class="title-text">便民專區</div>
+            <div class="section-1">
+                <ul class="menu">
+                    <li class="menu-item">就醫相關資訊</li>
+                    <li class="menu-item">院內服務</li>
+                    <li class="menu-item">便民設施</li>
+                    <li class="menu-item">健康教育</li>
+                    <li class="menu-item">社區資源</li>
+                    <li class="menu-item">相關連結</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 最新消息 -->
+        <div>
+            <div class="title-text2">最新消息</div>
+            <div class="tabs">
+                <button class="tab">= 所有消息 =</button>
+                <button class="tab">= 重要公告 =</button>
+                <button class="tab">= 防疫公告 =</button>
+            </div>
+            <div class="section-2">
+                <div class="news-list">
+                    <div class="news-item">2024.12.03 | 📢 門診異動公告</div>
+                    <div class="news-item">2024.12.03 | 🦠 公告最新的防疫政策</div>
+                    <div class="news-item">2024.12.03 | 🎓 免費健康教育講座</div>
+                    <div class="news-item">2024.12.03 | 🎉 兒童健康日活動</div>
+                    <div class="news-item">2024.12.03 | 💡 健康篩檢優惠活動</div>
+                    <div class="news-item">2024.12.03 | 🚐 社區義診通知</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 感謝園地 -->
+    <div class="thanks-section1">
+        <div class="title-text3">感謝園地</div>
+        <div class="more-button">查看更多</div>
+    </div>
+
+    <div class="thanks-section2">
+        <div class="cards-container">
+            <button class="arrow-button" onclick="prevCards()">&#129120;</button>
+            <div class="cards-wrapper"></div>
+            <button class="arrow-button2" onclick="nextCards()">&#129122;</button>
+        </div>
+    </div>
+
+    <!-- 熱門話題 -->
+    <div class="title-text3">熱門話題</div>
+    <div class="topics-container">
+        <div class="topic-back">
+            <div class="topic">
+                <img src="/clinic_site/images/article-img (1).png" alt="如何讓孩子輕鬆就醫？">
+                <div class="topic-content">
+                    <h3>如何讓孩子輕鬆就醫？</h3>
+                    <p>帶孩子就醫，家長需陪伴與鼓勵。透過遊戲、故事和醫護關心引導，讓孩子安心，減少緊張，建立自信感。</p>
+                    <span class="date">2024-12-04</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-back">
+            <div class="topic">
+                <img src="/clinic_site/images/article-img (2).png" alt="晨光故事：醫院裡溫馨小片段">
+                <div class="topic-content">
+                    <h3>晨光故事：醫院裡溫馨小片段</h3>
+                    <p>小男孩打針哭了，醫師送上貼紙，孩子立刻破涕為笑。醫患間的溫暖互動，讓醫院充滿人情味。</p>
+                    <span class="date">2024-12-04</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-back">
+            <div class="topic">
+                <img src="/clinic_site/images/article-img (3).png" alt="醫師解答：孩子發燒怎麼辦？">
+                <div class="topic-content">
+                    <h3>醫師解答：孩子發燒怎麼辦？</h3>
+                    <p>孩子發燒別慌，保持清涼、多補水分，觀察精神狀況。若高燒超過 38.5°C 或持續兩天以上，請儘速就醫。</p>
+                    <span class="date">2024-12-04</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 專業服務 -->
+    <div class="title-text4">專業服務</div>
+    <div>
+        <ul class="opd-section">
+            <li>一般小兒科</li>
+            <li>小兒腸胃科</li>
+            <li>小兒神經科</li>
+        </ul>
+        <ul class="opd-section">
+            <li>小兒感染科</li>
+            <li>小兒內分泌科</li>
+            <li>小兒牙科</li>
+        </ul>
+        <ul class="opd-section">
+            <li>小兒呼吸科</li>
+            <li>小兒心臟科</li>
+            <li>小兒發展行為科</li>
+        </ul>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>晨光兒童醫院 Chenguang Children's Hospital</h4>
+                <p>地址：台北市XX區XX路XX號</p>
+                <p>電話：(02) 1234-5678</p>
+                <p>傳真：(02) 9876-5432</p>
+                <p>客服信箱：service@chenguangchildrenshospital.tw</p>
+            </div>
+
+            <div class="footer-info">
+                <h4>營業時間</h4>
+                <p>門診時間：週一至週六 08:00-17:00</p>
+                <p>急診服務：全年無休 24 小時</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>快速連結</h4>
+                <ul>
+                    <li><a href="#">交通指引</a></li>
+                    <li><a href="#">常見問題</a></li>
+                    <li><a href="#">隱私權政策</a></li>
+                    <li><a href="#">使用條款</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Chenguang Children's Hospital</p>
+            <p>本網站內容屬晨光兒童醫院所有，未經許可請勿轉載。</p>
+            <p>衛生福利部晨光兒童醫療財團法人晨光兒童醫院 著作權所有，並保留一切權利。</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="./script/hos.js"></script>
+</body>
+</html>

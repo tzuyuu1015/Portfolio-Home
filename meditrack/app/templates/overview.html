@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="h4 mb-3">系統儀表板</h2>
+
+<div class="row g-3 mb-3">
+  <div class="col-md-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="text-muted small">病患總數</div>
+        <div class="h4 mb-0">{{ total_patients }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="text-muted small">高血壓（最新一次）</div>
+        <div class="h4 mb-0">{{ hyper_count }} 人 <span class="text-muted small">({{ hyper_pct }}%)</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="text-muted small">血糖異常（最新一次）</div>
+        <div class="h4 mb-0">{{ gly_count }} 人 <span class="text-muted small">({{ gly_pct }}%)</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 d-flex align-items-stretch">
+    <div class="card shadow-sm w-100">
+      <div class="card-body d-grid gap-2">
+        <a class="btn btn-outline-primary" href="{{ url_for('reports.report_hypertension') }}">查看高血壓名單</a>
+        <a class="btn btn-outline-danger" href="{{ url_for('reports.report_glycemia') }}">查看血糖異常名單</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>異常比例</strong></div>
+      <div class="card-body">
+        <canvas id="pieAbnormal"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>每週新增病患（近 10 週）</strong></div>
+      <div class="card-body">
+        <canvas id="lineWeekly"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Pie: 異常比例
+  const pieCtx = document.getElementById('pieAbnormal').getContext('2d');
+  new Chart(pieCtx, {
+    type: 'pie',
+    data: {
+      labels: ['高血壓(%)', '血糖異常(%)', '其他(%)'],
+      datasets: [{
+        data: [{{ hyper_pct or 0 }}, {{ gly_pct or 0 }}, {{ 100 - (hyper_pct or 0) - (gly_pct or 0) }}]
+      }]
+    }
+  });
+
+  // Line: 每週新增病患
+  const lineCtx = document.getElementById('lineWeekly').getContext('2d');
+  new Chart(lineCtx, {
+    type: 'line',
+    data: {
+      labels: {{ labels|tojson }},
+      datasets: [{
+        label: '每週新增數',
+        data: {{ values|tojson }},
+        fill: false
+      }]
+    }
+  });
+</script>
+{% endblock %}

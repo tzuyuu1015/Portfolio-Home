@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="h4 mb-3">報表中心</h2>
+<div class="list-group">
+  <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+     href="{{ url_for('reports.report_hypertension') }}">
+    高血壓名單（取各病患最近一次血壓）
+    <span class="badge text-bg-primary">SBP ≥ 140 或 DBP ≥ 90</span>
+  </a>
+  <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+    href="{{ url_for('reports.report_glycemia') }}">
+    血糖異常名單（取各病患最近一次 Glucose/HbA1c）
+    <span class="badge text-bg-danger">GLU ≥ 126 或 HbA1c ≥ 6.5%</span>
+  </a>
+  <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+    href="{{ url_for('reports.report_overdue') }}">
+    未回診清單（超過 N 天無任何紀錄）
+    <span class="badge text-bg-secondary">預設 30 天</span>
+  </a>
+
+
+</div>
+{% endblock %}

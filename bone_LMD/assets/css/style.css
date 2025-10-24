@@ -1,0 +1,570 @@
+@charset "UTF-8";
+/*共通部分*/
+html{
+    font-size: 100%;
+}
+body{
+    font-family:"Yu Gothic Medium", "游ゴシック Medium", "YuGothic", "游ゴシック体", "ヒラギノ角ゴ Pro W3",
+    sans-serif;line-height: 1.7;
+    color: #443322;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+/***index.html***/
+/*大型背景*/
+.big-big{
+    background-size: cover; /*影像填滿整個畫面*/
+    background-position: center top; /*容器中垂直置中並靠頂部對齊*/
+    background-repeat: no-repeat; /*禁止背景圖片的重複*/
+}
+#home{
+    background-image:url(../images/background4.JPG);
+    min-height: 100vh;/*畫面高度*/
+}
+
+/*首頁左上圖片*/
+.logo{
+    width:400px;
+    margin-top: 14px;
+}
+
+/*導覽*/
+.header{
+    display: flex; 
+    justify-content: space-between;
+}
+.wrapper{
+    padding:0 4%;
+    display: flex;
+}
+.main-nav{
+    display: flex;
+    font-size: 1.25rem;
+    margin-top: 44px;
+    list-style: none;
+}
+.main-nav li{
+    margin-left: 36px;
+}
+.main-nav a{
+    color:#432;
+}
+.main-nav a:hover{ 
+    color:#0bd;
+}
+
+/*home-content*/
+.home-content{
+    text-align: center;
+    padding: 4%;
+}
+.page-title{
+    font-size: 5rem;
+    font-family:'Philosopher',serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0 auto;
+}
+.home-content p{
+    font-size: 1.25rem;
+    margin: 20px auto 42px; 
+    width: 870px;
+}
+
+/*button*/
+.button{
+    font-size: 1.375rem; /*字體大小*/
+    background: #0bd;
+    color:#fff;
+    border-radius:5px; /*邊寬半徑*/
+    padding: 18px 32px; /*內邊距*/
+}
+.button:hover{
+    background: #1199ae;
+}
+
+/*footer*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 設置網頁最小高度為視口高度，以確保內容不會撐滿整個視口 */
+}
+footer{
+    background-color: rgba(32, 27, 27, 0.815);
+    text-align: center;
+    padding: 3px 0;
+    color: rgb(198, 214, 230);
+    font-size: 0.875rem;
+    margin-top: auto; /* 將頁腳頂部與其上方內容區域之間的距離設為自動，使頁腳自動佔據剩餘空間 */
+}
+/**doctor.html**/
+.contents{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.doctor{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.doctor-photo{
+    width:300px;
+    margin-left: 10px;
+}
+.doctor-photo2{
+    width:300px;
+    margin-left: 10px;
+    margin-top: 50px;
+}
+.doctor-name{
+    text-align: center;
+    font-size: 2rem;
+    color:#0bd;
+}
+.ol{
+    font-size: 1.25rem;
+    color: #0bd;
+    padding: 5px;
+    padding-left: 0px;
+}
+.ool{
+    padding-top: 80px;
+}
+
+/**邊攔**/
+article{
+    width:74%;
+}
+aside{
+    width:22%;
+}
+
+.post-info{
+    position: relative; /*這個屬性可決定元素的相對位置 屬性:相對位置*/
+    padding-top: 4px;
+    margin-bottom: 40px;
+    flex-direction: column;
+}
+
+.post-data{
+    background:rgb(81, 161, 196);
+    border-radius: 50%; /*外框圓角*/
+    color:#fff;
+    width: 100px;
+    height: 100px;
+    font-size: 1.625rem;
+    text-align: center;
+    position: absolute; /*設定後，他會往外層尋找 position: relative的元素，
+    並以該元素為定位點，若外層沒有設定，則以網頁左上角為定位點*/
+    top:0;
+    padding-top:10px;
+}
+.post-data span{
+    font-size:1rem;
+    border-top:1px rgba(255,255,255,.5) solid; /*日期文字上方加入水平線*/
+    padding-top:6px;
+    display: block;
+    width:60px;
+    margin: 0 auto;
+}
+.post-title{
+    font-family: "Yu Mincho","YuMincho",serif;/*指定文章標題的字體惟游明昭體,襯線體*/
+    font-size: 2rem;
+    font-weight: normal;
+}
+.post-title,
+.post-OA {
+    margin-left: 120px;
+}
+/**aside**/
+.sub-title{
+    font-size: 1.375rem;
+    padding:0 8px 8px;
+    border-bottom:2px #0bd solid;
+    font-weight: normal;
+}
+aside p{
+    padding:12px 10px;
+}
+.sub-menu{
+    list-style: none;
+    margin-bottom: 60px;    
+    border-bottom:1px #ddd solid;
+}
+.test{
+    border-bottom:1px #ddd solid;
+}
+.sub-menu a{
+    color:#432;
+    padding: 10px;
+    display: block;
+}
+.sub-menu  a:hover{
+    color:#0bd;
+}
+.sub-menu2{
+    color:#432;
+    padding: 10px;
+    display: block;
+}
+.shape-ex1{
+    display: block;
+    /*transition: all .3s linear*/
+   }
+.shape-ex1 ul{
+    padding-inline-start: 0px;
+}
+.shape-ex1 li::marker{
+    font-size: 0;
+}
+.shape-ex1 input[type="checkbox"],
+.shape-ex1 input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+}
+
+.shape-ex1-list{
+    position: relative;
+}
+.shape-ex1-list-name{
+    color:#432;
+    padding: 10px;
+    display: block;
+   /* border-bottom:1px #ddd solid; 每個項目下方加入淺灰色底線*/
+    
+}
+.shape-ex1-list-sec-name a:hover{
+    color:#0bd;
+    text-decoration: none;
+
+}
+.shape-ex1-list-sec-name a{
+    color:#432;
+}
+    /*font-size: 1.25rem;
+    line-height: 2rem;
+    padding-right: 1.25rem;
+    padding-left: 0.625rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-color: rgb(209 213 219);
+    display: block;
+    min-width: max-content;
+    position: relative;*/
+.shape-ex1-list-name::after{
+        content:'';
+        width: 0;
+        height: 0;
+        border-top: 8px solid #0bd;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        position: absolute;
+        top: 18px;
+        right: 0px;
+}
+.shape-ex1-list-name a:hover{
+    color:#0bd;
+    text-decoration: none;
+}
+.shape-ex1-list-sec-box{
+    display: none;
+    padding-left: 0;
+}
+.shape-ex1-list-sec{
+}
+.shape-ex1-list-sec-name{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    min-width: max-content;
+    display: block;
+    position: relative;
+    padding: 2px;
+    padding-left: 10px;
+}
+
+.shape-ex1 input[type="checkbox"]:checked + ul,
+.shape-ex1 input[type="radio"]:checked + ul{
+    display: block;
+}
+
+.ttile {
+    font-size: 1.5rem;
+    color:#432;
+    font-weight: bold;
+    border-left:solid 7px #4D453E;
+    padding-left: 5px;
+}
+/*treat.html*/
+/*
+.image-bg-2 {
+    position: relative;
+  }
+  
+.bg {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+  }
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.25rem;
+    text-indent: 2em
+  }
+  */
+
+.font{
+}
+.text2{
+    text-indent: 2em;
+    line-height: 2;
+    float: left 40%;
+}
+.plt{
+    color: red;
+}
+.yellow{
+    background: linear-gradient(#ffffff00 60%, #ffff005c 50%) !important;
+    font-size: 1.5rem;
+    font-weight:bold; 
+}
+.green{
+    background:linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #90daff 50%,transparent 70%);	
+    padding: 2px 1px;
+    font-weight:bold; 
+}
+.text3{
+    line-height:2;
+    float: left 40%;
+}
+.pii{
+    float: right;
+    max-width:420px;
+    img{
+        max-width:90%;
+        overflow: hidden; 
+        margin-left: 20px;
+
+            }
+    &:hover {
+            transform: scale(1.2);
+            transition: 0.5s;
+            padding: 10px; 
+        }
+        
+      
+}
+.all{
+    background-color: #e9e4e442;
+}
+.text4{
+    line-height:2;
+    float: left 40%;
+    text-indent: 2em;
+}
+
+#reh{
+    background-image: url(../images/ba.png);
+    min-height: 50vh;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.rehabilitation{
+    color:#432;
+    font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3",
+    sans-serif;
+    
+}
+.rehabilitation-title{
+   text-align: center;
+   font-size: 2rem;
+   font-weight: bold;
+   line-height: 2;
+   
+}
+.rehabilitation p{
+    font-size: 1.25rem;
+    background: rgba(255,255,2255,0.5);
+    width: 1000px;
+    line-height: 1.7;
+    text-align: center;
+    margin-top: 10px;
+}
+.grid{
+    display: grid;
+    gap:90px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 6%;
+    margin-bottom: 70px;
+    margin-right: 70px;
+    margin-left: 70px;
+
+}
+.item p{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.pil2{
+    max-width:500px;
+    img{
+        max-width:100%;
+        overflow: hidden;
+
+
+            }
+    &:hover {
+            transform: scale(1.2);
+            transition: 0.5s;
+            padding: 10px; 
+        }
+        
+}
+
+/*table*/
+.nurse-table{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.table1{
+    font-size: 2rem;
+    font-weight: bold;
+    color:#432;
+    
+}
+.table1{
+    background: linear-gradient(#ffffff00 60%, #ffff005c 50%) !important;
+    font-size: 2rem;
+    font-weight:bold; 
+}
+.table2{
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.table3{
+    height: 100px;
+    outline: 1px solid;
+    border-radius:10px;
+    border-collapse: collapse;
+    border-style: hidden;
+    box-shadow: 0 0 5px #000000;
+}
+table th{
+    padding: 5px;
+    color:#432;
+}
+table td{
+    padding: 5px;
+    color:#432;
+    border: 1px solid #432;
+}
+a {
+    color: rgb(33, 38, 62)
+}
+
+tr:nth-child(even) {
+    background:rgb(180, 216, 246)
+}
+tr:nth-child(odd) {
+    background-color: #FAFAFA;
+}
+td:hover {
+    background-color: #E6FBFF;
+}
+.a1{
+    width: 100px;
+}
+.a3{
+    width: 200px;
+}
+
+.table_doctor2{
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    align-items: center;
+    border:none;
+}
+.yellow2{
+    background: linear-gradient(#ffffff00 60%, #ffff005c 50%) !important;
+    font-size: 2rem;
+    font-weight:bold; 
+    width: 200px;
+    text-align: center;
+    margin:20px;
+}
+.article_doctor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.yellow3{
+    margin-bottom:20px;
+    background: linear-gradient(#ffffff00 60%, #ffff005c 50%) !important;
+    font-size: 2rem;
+    font-weight:bold; 
+    width: 200px;
+    text-align: center;
+}
+iframe{
+    margin-bottom:20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #0bd;
+    border-radius: 5px;
+    background-color: #fffffa;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    background-color: #0bd;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+input[type="submit"]:hover {
+    background-color: #1199ae;
+}
+.label1{
+    font-weight: bold;
+}
+.article_book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

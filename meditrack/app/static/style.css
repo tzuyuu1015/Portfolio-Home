@@ -1,0 +1,52 @@
+/* MediTrack 全域樣式設定
+   -------------------------------------------------- */
+
+/* 整體背景與字型 */
+body {
+    background-color: #f8f9fa;  /* 淡灰白背景 */
+    font-family: "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+    color: #212529;
+}
+
+/* 導覽列（頂部） */
+.navbar-custom {
+    background-color: #0069d9; /* 藍色主色 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+    color: white !important;
+}
+.navbar-custom .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* 卡片與表格 */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.card-header {
+    font-weight: 600;
+}
+
+/* 表格 */
+.table th {
+    background-color: #e9ecef;
+    font-weight: 600;
+}
+
+/* 主按鈕顏色統一 */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+/* 小區塊標題（讓報表標題一致） */
+h2, h3, h4 {
+    font-weight: 600;
+    color: #004085;
+}

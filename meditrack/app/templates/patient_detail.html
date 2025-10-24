@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex align-items-center mb-3">
+  <h2 class="h4 mb-0 me-auto">個案趨勢：{{ patient.name }} <span class="text-muted fs-6">(#{{ patient.mrn or '—' }})</span></h2>
+  <a class="btn btn-outline-secondary" href="{{ url_for('patient.list_patients') }}">返回清單</a>
+</div>
+
+<!-- 新增資料區：Vital / Lab -->
+<div class="row g-3 mb-3">
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>新增生命徵象</strong></div>
+      <div class="card-body">
+        <form method="post" action="{{ url_for('patient.create_vital', pid=patient.id) }}">
+          {{ vital_form.csrf_token }}
+          <div class="row g-2">
+            <div class="col-6 col-md-3">
+              {{ vital_form.systolic.label(class="form-label") }}
+              {{ vital_form.systolic(class="form-control", placeholder="SBP", step="1") }}
+            </div>
+            <div class="col-6 col-md-3">
+              {{ vital_form.diastolic.label(class="form-label") }}
+              {{ vital_form.diastolic(class="form-control", placeholder="DBP", step="1") }}
+            </div>
+            <div class="col-6 col-md-3">
+              {{ vital_form.heart_rate.label(class="form-label") }}
+              {{ vital_form.heart_rate(class="form-control", placeholder="HR", step="1") }}
+            </div>
+            <div class="col-6 col-md-3">
+              {{ vital_form.spo2.label(class="form-label") }}
+              {{ vital_form.spo2(class="form-control", placeholder="SpO₂", step="1") }}
+            </div>
+            <div class="col-12 col-md-6">
+              {{ vital_form.recorded_at.label(class="form-label") }}
+              {{ vital_form.recorded_at(class="form-control") }}
+              <div class="form-text">不填則預設為現在時間</div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex gap-2">
+            {{ vital_form.submit(class="btn btn-primary") }}
+            <a class="btn btn-outline-secondary" href="{{ url_for('patient.patient_detail', pid=patient.id) }}">清除</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>新增檢驗值</strong></div>
+      <div class="card-body">
+        <form method="post" action="{{ url_for('patient.create_lab', pid=patient.id) }}">
+          {{ lab_form.csrf_token }}
+          <div class="row g-2">
+            <div class="col-6">
+              {{ lab_form.glucose.label(class="form-label") }}
+              {{ lab_form.glucose(class="form-control", placeholder="mg/dL", step="0.1") }}
+            </div>
+            <div class="col-6">
+              {{ lab_form.hba1c.label(class="form-label") }}
+              {{ lab_form.hba1c(class="form-control", placeholder="%", step="0.1") }}
+            </div>
+            <div class="col-12 col-md-6">
+              {{ lab_form.recorded_at.label(class="form-label") }}
+              {{ lab_form.recorded_at(class="form-control") }}
+              <div class="form-text">不填則預設為現在時間</div>
+            </div>
+          </div>
+          <div class="mt-3 d-flex gap-2">
+            {{ lab_form.submit(class="btn btn-danger") }}
+            <a class="btn btn-outline-secondary" href="{{ url_for('patient.patient_detail', pid=patient.id) }}">清除</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 圖表區 -->
+<div class="row g-3">
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>血壓趨勢（SBP / DBP）</strong></div>
+      <div class="card-body">
+        {% if bp_labels %}
+          <canvas id="bpChart"></canvas>
+          <div class="text-muted small mt-2">附：HR、SpO₂ 一併列在表格</div>
+        {% else %}
+          <div class="text-muted small">尚無血壓資料可繪圖</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>血糖趨勢（Glucose / HbA1c）</strong></div>
+      <div class="card-body">
+        {% if lab_labels %}
+          <canvas id="labChart"></canvas>
+        {% else %}
+          <div class="text-muted small">尚無血糖資料可繪圖</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 歷史列表 -->
+<div class="row g-3 mt-2">
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>生命徵象紀錄</strong></div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>時間</th><th>SBP</th><th>DBP</th><th>HR</th><th>SpO₂</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for v in vitals %}
+            <tr>
+              <td>{{ v.recorded_at.strftime('%Y-%m-%d %H:%M') if v.recorded_at else '—' }}</td>
+              <td>{{ v.systolic or '—' }}</td>
+              <td>{{ v.diastolic or '—' }}</td>
+              <td>{{ v.heart_rate or '—' }}</td>
+              <td>{{ v.spo2 or '—' }}</td>
+            </tr>
+          {% else %}
+            <tr><td colspan="5" class="text-center text-muted">尚無資料</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><strong>檢驗紀錄</strong></div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>時間</th><th>Glucose</th><th>HbA1c</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for l in labs %}
+            <tr>
+              <td>{{ l.recorded_at.strftime('%Y-%m-%d %H:%M') if l.recorded_at else '—' }}</td>
+              <td>{{ l.glucose if l.glucose is not none else '—' }}</td>
+              <td>{{ l.hba1c   if l.hba1c   is not none else '—' }}</td>
+            </tr>
+          {% else %}
+            <tr><td colspan="3" class="text-center text-muted">尚無資料</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  {% if bp_labels %}
+  (function() {
+    const ctx = document.getElementById('bpChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: {{ bp_labels|tojson }},
+        datasets: [
+          { label: 'SBP', data: {{ sbp_series|tojson }}, fill: false },
+          { label: 'DBP', data: {{ dbp_series|tojson }}, fill: false }
+        ]
+      }
+    });
+  })();
+  {% endif %}
+
+  {% if lab_labels %}
+  (function() {
+    const ctx = document.getElementById('labChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: {{ lab_labels|tojson }},
+        datasets: [
+          { label: 'Glucose (mg/dL)', data: {{ glu_series|tojson }}, fill: false },
+          { label: 'HbA1c (%)', data: {{ a1c_series|tojson }}, fill: false }
+        ]
+      }
+    });
+  })();
+  {% endif %}
+</script>
+{% endblock %}

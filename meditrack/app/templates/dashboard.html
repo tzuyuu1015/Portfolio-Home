@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex align-items-center mb-3">
+  <h2 class="me-auto h4 mb-0">病患清單</h2>
+  <a class="btn btn-primary" href="{{ url_for('patient.create_patient') }}">＋ 新增病患</a>
+</div>
+
+<form class="row row-cols-lg-auto g-2 align-items-center mb-3" method="get">
+  <div class="col-12">
+    <input type="text" name="q" class="form-control" placeholder="搜尋姓名 / 病歷號 / 電話" value="{{ q or '' }}">
+  </div>
+  <div class="col-12">
+    <button class="btn btn-outline-secondary" type="submit">搜尋</button>
+  </div>
+</form>
+
+<div class="card shadow-sm">
+  <div class="table-responsive">
+    <table class="table table-hover mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>建立時間</th>
+          <th>病歷號</th>
+          <th>姓名</th>
+          <th>性別</th>
+          <th>年齡</th>
+          <th>電話</th>
+          <th>Email</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in patients %}
+        <tr>
+          <td>{{ p.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td>{{ p.mrn|default_if_none }}</td>
+          <td><a href="{{ url_for('patient.patient_detail', pid=p.id) }}">{{ p.name }}</a></td>
+          <td>{{ p.gender|default_if_none }}</td>
+          <td>{{ p.age|default_if_none }}</td>
+          <td>{{ p.phone|default_if_none }}</td>
+          <td>{{ p.email|default_if_none }}</td>
+          <td class="text-nowrap">
+                <a class="btn btn-sm btn-outline-dark" href="{{ url_for('patient.patient_detail', pid=p.id) }}">詳細</a>
+                <a class="btn btn-sm btn-outline-primary" href="{{ url_for('patient.edit_patient', pid=p.id) }}">編輯</a>
+                <form method="post" action="{{ url_for('patient.delete_patient', pid=p.id) }}" class="d-inline"
+                        onsubmit="return confirm('刪除後無法復原，確認要刪除嗎？');">
+                    <button class="btn btn-sm btn-outline-danger" type="submit">刪除</button>
+                </form>
+            </td>
+
+        </tr>
+        {% else %}
+        <tr><td colspan="8" class="text-center text-muted">目前沒有資料</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
