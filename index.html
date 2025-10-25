@@ -50,6 +50,7 @@
     .p{display:flex;flex-direction:column;gap:8px}
     .p h3{margin:0;font-size:16px}
     .eyebrow{font-size:12px;color:var(--muted);text-transform:uppercase}
+    .p1{}
 
     /* Footer */
     footer{padding:20px 0;border-top:1px solid var(--border);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
@@ -71,38 +72,50 @@
     <!-- Hero -->
     <section class="hero">
       <div class="card">
-        <h2>結合護理背景，打造醫療友善介面</h1>
-        <p class="muted">本頁展示三個核心作品：<strong>Meditrack</strong>、<strong>Bone_LMD</strong>、<strong>Clinic Site</strong>。</p>
+        <h2>結合護理背景，打造醫療友善介面</h2>
+        <p class="muted">
+          本頁展示三個核心作品：<br>
+          <div class="p1">
+            <strong>MediTrack</strong> — 醫療資料追蹤與統計系統<br>
+            <strong>MediOrtho</strong> — 骨科診所網站切版設計<br>
+            <strong>Clinic Site</strong> — 醫院/診所/藥局前端整合版型
+          </div>
+        </p>
         <div class="row">
-          <a class="btn primary" href="#projects">查看作品</a>
-          <a class="btn" href="#contact">聯絡我</a>
+          <a class="btn primary" href="#projects">Live Demo</a>
+          <a class="btn" href="#contact">Content</a>
         </div>
       </div>
+
       <div class="card">
-        <strong>技能重點</strong>
-        <ul class="muted" style="margin:8px 0 0 18px">
+        <h2>技能重點</h2>
+        <ul class="muted" style="margin-top:40px">
           <li>HTML / CSS / JavaScript</li>
-          <li>響應式切版、語意化結構</li>
-          <li>醫療場域可用性與一致性</li>
+          <li>Flask / Bootstrap / Chart.js</li>
+          <li>響應式切版與語意化結構</li>
+          <li>醫療系統介面設計與一致性</li>
         </ul>
       </div>
     </section>
 
+
 <!-- Projects -->
+
   <section id="projects" class="grid">
-    <!-- Meditrack -->
+    <!-- Clinic Site -->
     <article class="card">
       <video controls muted playsinline preload="metadata"
-            poster="./assets/meditrack-hero.webp"
+            poster="./assets/clinic-cover.webp"
             style="width:100%;border-radius:12px;aspect-ratio:16/9">
-        <source src="./assets/meditrack-hero.mp4" type="video/mp4">
+        <source src="./assets/clinic-walkthrough.mp4" type="video/mp4">
         您的瀏覽器不支援影片播放。
       </video>
-      <h3>Meditrack</h3>
-      <p class="muted">遠距照護追蹤系統：病患清單、問卷、追蹤狀態。</p>
+      <h3>Clinic Site</h3>
+      <p class="muted">醫療機構版型整合展示：<br>醫院、診所與藥局的首頁設計，採用<strong>單欄</strong>、<strong>雙欄</strong>與<strong>三欄</strong>布局，展示多樣版面設計與響應式切版技巧。</p>
       <div class="row">
-        <a class="btn primary" href="https://你的部署域名或Render網址/login" target="_blank" rel="noopener">Live Demo</a>
-        <a class="btn" href="https://github.com/你的帳號/meditrack" target="_blank" rel="noopener">Source</a>
+        <a class="btn" href="./clinic_site/hospital.html" target="_blank" rel="noopener">醫院頁</a>
+        <a class="btn" href="./clinic_site/clinic.html" target="_blank" rel="noopener">診所頁</a>
+        <a class="btn" href="./clinic_site/med.html" target="_blank" rel="noopener">藥局頁</a>
       </div>
     </article>
 
@@ -114,42 +127,45 @@
         <source src="./assets/bone-lmd-home.mp4" type="video/mp4">
         您的瀏覽器不支援影片播放。
       </video>
-      <h3>Bone_LMD</h3>
-      <p class="muted">骨科診所網站切版，患者導向導覽與資訊呈現。</p>
+      <h3>MediOrtho</h3>
+      <p class="muted"> 骨科診所網站切版設計：<br>以<strong> HTML／CSS </strong>製作導覽與服務介紹，並支援<strong> RWD </strong>展現醫療友善的響應式版面。</p>
       <div class="row">
         <a class="btn primary" href="./bone_LMD/index.html" target="_blank" rel="noopener">Live Demo</a>
         <a class="btn" href="https://github.com/你的帳號/bone_lmd" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
-
-    <!-- Clinic Site -->
+    <!-- Meditrack -->
     <article class="card">
       <video controls muted playsinline preload="metadata"
-            poster="./assets/clinic-cover.webp"
+            poster="./assets/meditrack-hero.webp"
             style="width:100%;border-radius:12px;aspect-ratio:16/9">
-        <source src="./assets/clinic-walkthrough.mp4" type="video/mp4">
+        <source src="./assets/meditrack-hero.mp4" type="video/mp4">
         您的瀏覽器不支援影片播放。
       </video>
-      <h3>Clinic Site</h3>
-      <p class="muted">醫院／診所／藥局三款首頁排版，風格一致。</p>
+      <h3>MediTrack</h3>
+      <p class="muted">
+        遠距照護資料管理平台：<br>整合病患清單、問卷回覆與追蹤狀態，以<strong> Flask + Chart.js </strong>呈現動態趨勢與臨床報表。
+      </p>
       <div class="row">
-        <a class="btn" href="./clinic_site/hospital.html" target="_blank" rel="noopener">醫院頁</a>
-        <a class="btn" href="./clinic_site/clinic.html" target="_blank" rel="noopener">診所頁</a>
-        <a class="btn" href="./clinic_site/med.html" target="_blank" rel="noopener">藥局頁</a>
+        <a class="btn primary" href="https://你的部署域名或Render網址/login" target="_blank" rel="noopener">Live Demo</a>
+        <a class="btn" href="https://github.com/你的帳號/meditrack" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
+
   </section>
 
     <!-- About -->
     <section id="about">
       <h2>About</h2>
-      <p class="muted">臨床護理背景轉前端與資料分析。重視資訊清晰、易用與一致性。</p>
+      <p class="muted">走出臨床現場後，我選擇用前端與資料分析的方式，
+延續護理師的精神——在數位世界中，
+讓醫療資訊更清楚、更有溫度。</p>
     </section>
 
     <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
-      <p class="muted">Email：<a href="mailto:blair@example.com">blair@example.com</a> ｜ GitHub：<a href="#" rel="noopener">github.com/blair</a></p>
+      <p class="muted">Email：<a href="mailto:blair@example.com">tzuyuu1015@gmail.com</a> ｜ GitHub：<a href="#" rel="noopener">github.com/tzuyuu1015</a></p>
     </section>
 
     <footer>
