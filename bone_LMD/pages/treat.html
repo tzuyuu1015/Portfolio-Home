@@ -9,24 +9,33 @@
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher">
         <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="icon" type="image/png" sizes="16x16" href="../images/icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icon.png">
     </head>
     <body>
         <div>
-            <header class="header wrapper">
-                <h1><a href="../index.html"><img class="logo" src="../images/logo(3).png" alt="立健骨科首頁"></a></h1>
+            <header class="header wrapper2">
+                <h1>
+                    <a href="../index.html">
+                        <img class="logo" src="../assets/images/logo(3).png" alt="立健骨科首頁" />
+                    </a>
+                </h1>
+
+                <input type="checkbox" id="menu-btn" class="menu-btn">
+                <label for="menu-btn" class="menu-icon">
+                    <span class="nav-icon"></span>
+                </label>
                 <nav>
                     <ul class="main-nav">
-                        <li><a href="doctor.html">主治項目</a></li>
-                        <li><a href="rehabilitation.html">復健中心</a></li>
-                        <li><a href="nurse.html">衛教專區</a></li>
-                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="./doctor.html">主治項目</a></li>
+                        <li><a href="./rehabilitation.html">復健中心</a></li>
+                        <li><a href="./nurse.html">衛教專區</a></li>
+                        <li><a href="./about.html">關於我們</a></li>
                     </ul>
                 </nav>
             </header>
         </div> <!--/nurse-->
         <div class="contents wrapper"> 
-            <article>
+            <article style="margin-right:20px">
                 <div class="font">
                     <div class="ttile">『PRP』血小板治療</div>
                     <div>更新日期：2024年01月21日</div>
@@ -52,11 +61,11 @@
                         </div>
                     </div>
                 </div>
-                </br></br>
+                <br>
                 <div class="font">
                     <div class="ttile">『PLT』血小板治療</div>
                     <div>更新日期：2024年01月21日</div>
-                </br>
+                <br>
                     <div class="pii">
                         <img src="../assets/images/plt.jpg" alt="plt圖片">
                     </div>
@@ -68,8 +77,8 @@
                             子濃度報告，協助醫師進行操作時能掌握注射劑量在最短時間達到最佳的修復效果。加速骨質修復、促進骨質增生、強化微血管周邊循環與軟骨
                             組織再生。一次抽血製作後，可進行多次療程，且採用真空包裝，<span class="green">室溫下可保存3年</span>，適用於多種適應症、須長期且多次治療的患者。
                         </div>
-                        </br>
-                        <div>
+                        <br>
+                        <div style="margin-bottom: 60px;">
                             <span class="yellow">適用對象</span>
                             <div class="text4">
                                 用於<span class="green">退化性關節炎、椎間盤突出修復、骨移植修復、肌腱炎、足底筋膜炎、肌肉韌帶撕裂傷等症狀</span>，因適應症廣泛，
@@ -110,13 +119,21 @@
                         </ul>
                     </div>
                 </ul>                 
+                <div class="sidebar-footer-desktop">
                     <h3 class="sub-title">立健骨科</h3>
                     <ul class="sub-menu2">
                         <ol>電話：(02) 1234-5678</ol>
                         <ol>地址：台北市信義區忠孝東路四段888號</ol>
                     </ul>
+                </div>
             </aside>
-        </div><!--/.nurse-contents-->
+            </div><div class="contact-info-mobile wrapper">
+                    <h3 class="sub-title">立健骨科</h3>
+                    <ul class="sub-menu2">
+                        <ol>電話：(02) 1234-5678</ol>
+                        <ol>地址：台北市信義區忠孝東路四段888號</ol>
+                    </ul>
+            </div>
         <footer>
             <div class="weapper">
                 <p><small>&copy;2023 tzuyu-test</small></p>

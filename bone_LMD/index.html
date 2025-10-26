@@ -14,28 +14,31 @@
     <!-- your css (fixed path) -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <!-- icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/icon.png" />
   </head>
 
   <body>
     <div id="home" class="big-big">
-      <header class="header wrapper">
-        <h1>
-          <a href="./index.html">
-            <img class="logo" src="assets/images/logo(3).png" alt="立健骨科首頁" />
-          </a>
-        </h1>
+        <header class="header wrapper2">
+          <h1>
+            <a href="./index.html">
+              <img class="logo" src="assets/images/logo(3).png" alt="立健骨科首頁" />
+            </a>
+          </h1>
 
-        <nav>
-          <ul class="main-nav">
-            <!-- all pages live in /pages (fixed paths + lowercase filename) -->
-            <li><a href="pages/doctor.html">主治項目</a></li>
-            <li><a href="pages/rehabilitation.html">復健中心</a></li>
-            <li><a href="pages/nurse.html">衛教專區</a></li>
-            <li><a href="pages/about.html">關於我們</a></li>
-          </ul>
-        </nav>
-      </header>
+          <input type="checkbox" id="menu-btn" class="menu-btn">
+          <label for="menu-btn" class="menu-icon">
+              <span class="nav-icon"></span>
+          </label>
+          <nav>
+            <ul class="main-nav">
+              <li><a href="pages/doctor.html">主治項目</a></li>
+              <li><a href="pages/rehabilitation.html">復健中心</a></li>
+              <li><a href="pages/nurse.html">衛教專區</a></li>
+              <li><a href="pages/about.html">關於我們</a></li>
+              </ul>
+          </nav>
+        </header>
 
       <main class="home-content">
         <h2 class="page-title">Service Content</h2>
@@ -50,8 +53,5 @@
       </main>
     </div>
 
-    <footer>
-      <p><small>&copy; 2023 tzuyu-test</small></p>
-    </footer>
   </body>
 </html>

@@ -13,55 +13,73 @@
     </head>
     <body>
         <div>
-            <header class="header wrapper">
-                <h1><a href="../index.html"><img class="logo" src="../assets/images/logo(3).png" alt="立健骨科首頁"></a></h1>
+            <header class="header wrapper2">
+                <h1>
+                    <a href="../index.html">
+                        <img class="logo" src="../assets/images/logo(3).png" alt="立健骨科首頁" />
+                    </a>
+                </h1>
+
+                <input type="checkbox" id="menu-btn" class="menu-btn">
+                <label for="menu-btn" class="menu-icon">
+                    <span class="nav-icon"></span>
+                </label>
                 <nav>
                     <ul class="main-nav">
-                        <li><a href="doctor.html">主治項目</a></li>
-                        <li><a href="rehabilitation.html">復健中心</a></li>
-                        <li><a href="nurse.html">衛教專區</a></li>
-                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="./doctor.html">主治項目</a></li>
+                        <li><a href="./rehabilitation.html">復健中心</a></li>
+                        <li><a href="./nurse.html">衛教專區</a></li>
+                        <li><a href="./about.html">關於我們</a></li>
                     </ul>
                 </nav>
             </header>
         </div> 
+
         <div class="contents wrapper"> 
             <article>
-                <div class="doctor">
-                    <div>
+                <div class="doctor-grid">
+                    <div class="doctor-visual">
                         <img class="doctor-photo" src="../assets/images/logo4.jpg" alt="黃許許 醫師">
                         <div class="doctor-name">骨科/黃許許 醫師</div>
-                        <img class="doctor-photo2" src="../assets/images/logo4.jpg" alt="林惶惶 醫師">
-                        <div class="doctor-name">神經內科/林惶惶 醫師</div>
                     </div>
-                    <div>
+                    
+                    <div class="doctor-details">
                         <ul>
-                            <ol class="ol">教育背景</ol>
+                            <li class="ol">教育背景</li>
                             <p>台北醫學大學醫學系畢業</p>
-                            <ol class="ol">臨床經歷</ol>
+                            <li class="ol">臨床經歷</li>
                             <p>馬偕醫院骨科 總醫師</p>
                             <p>雙和醫院骨科 主治醫師</p>
-                            <ol class="ol">研究專長</ol>
+                            <li class="ol">研究專長</li>
                             <p>骨折、骨折疏鬆症相關治療</p>
-                            <ol class="ol">骨科學會會員</ol>
+                            <li class="ol">骨科學會會員</li>
                             <p>TOA 中華民國骨科醫學會</p>
                         </ul>
-                    </br>
-                        <ul class="ool">
-                            <ol class="ol">教育背景</ol>
+                    </div>
+
+                    <div class="doctor-visual">
+                        <img class="doctor-photo" src="../assets/images/logo4.jpg" alt="林惶惶 醫師">
+                        <div class="doctor-name">神經內科/林惶惶 醫師</div>
+                    </div>
+
+                    <div class="doctor-details">
+                        <ul>
+                            <li class="ol">教育背景</li>
                             <p>長庚大學醫學系畢業</p>
-                            <ol class="ol">臨床經歷</ol>
+                            <li class="ol">臨床經歷</li>
                             <p>新光醫院神經內科 總醫師</p>
                             <p>雙和醫院神經內科 主治醫師</p>
-                            <ol class="ol">研究專長</ol>
+                            <li class="ol">研究專長</li>
                             <p>中風、偏頭痛相關治療</p>
-                            <ol class="ol">骨科學會會員</ol>
+                            <li class="ol">骨科學會會員</li>
                             <p>台灣神經學學會</p>
                         </ul>
                     </div>
                 </div>
             </article>
-            <aside>
+
+        <aside>
+            <div>
                 <h3 class="sub-title">類別</h3>
                 <ul class="sub-menu">
                     <li class="test"><a href="doctor.html">醫師簡介</a></li>
@@ -72,36 +90,37 @@
                                 <input type="checkbox" name="ex1_1-input" id="ex1_1-checkbox" />
                                 <ul class="shape-ex1-list-sec-box">
                                     <li class="shape-ex1-list-sec">
-                                        <label class="shape-ex1-list-sec-name" for="checkbox"><a href="treat.html">血小板治療</a></label>
-                                        <input type="radio" name="ex1_2-input" id="checkbox" />
+                                        <label class="shape-ex1-list-sec-name" for="checkbox1"><a href="treat.html">血小板治療</a></label>
+                                        <input type="radio" name="ex1_2-input" id="checkbox1" />
                                     </li>
                                     <li class="shape-ex1-list-sec">
-                                        <label class="shape-ex1-list-sec-name" for="checkbox"><a href="a.html">葡萄糖增生</a></label>
-                                        <input type="radio" name="ex1_2-input" id="checkbox" />
-                                    </li>
-                                    <li class="shape-ex1-list-sec">
-                                        <label class="shape-ex1-list-sec-name" for="checkbox"><a href="b.html">玻尿酸注射</a></label>
-                                        <input type="radio" name="ex1_2-input" id="checkbox" />
-                                    </li>
-                                    <li class="shape-ex1-list-sec">
-                                        <label class="shape-ex1-list-sec-name" for="checkbox"><a href="c.html">高級保養</a></label>
-                                        <input type="radio" name="ex1_2-input" id="checkbox" />
+                                        <label class="shape-ex1-list-sec-name" for="checkbox2"><a href="a.html">葡萄糖增生</a></label>
+                                        <input type="radio" name="ex1_2-input" id="checkbox2" />
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </ul>
+            </div>
 
+            <div class="sidebar-footer-desktop">
                 <h3 class="sub-title">立健骨科</h3>
                 <ul class="sub-menu2">
                     <ol>電話：(02) 1234-5678</ol>
                     <ol>地址：台北市信義區忠孝東路四段888號</ol>
                 </ul>
-            </aside>
-        </div><!--/.nurse-contents-->
+            </div>
+        </aside>
+        </div><div class="contact-info-mobile wrapper">
+            <h3 class="sub-title">立健骨科</h3>
+            <ul class="sub-menu2">
+                <ol>電話：(02) 1234-5678</ol>
+                <ol>地址：台北市信義區忠孝東路四段888號</ol>
+            </ul>
+        </div>
         <footer>
-            <div class="weapper">
+            <div class="wrapper">
                 <p><small>&copy;2023 tzuyu-test</small></p>
             </div>
         </footer>
