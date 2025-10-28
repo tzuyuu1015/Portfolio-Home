@@ -38,7 +38,7 @@ const cards = [
 ];
 
 // 圖片資料夾的正確路徑
-const IMG_BASE = "/clinic_site/images/";
+const IMG_BASE = "./images/";
 
 let currentIndex = 0;
 
